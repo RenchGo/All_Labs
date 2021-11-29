@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FlightSearch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="FlightSearch.js"></script>
+
+</head>
+<body style="background-color: #DCDCDC;">
+  <!-- Меню -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white sticky-top">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="Logo.jpg" width="60" height="60" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto ">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="P.jpg" width="30" height="30"> Профиль
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">
+            <img src="nast.png" width="20" height="20"> Настройки</a>
+          <a class="dropdown-item" href="#">
+          <img src="pod.png" width="20" height="20"> Подписки</a>
+          <a class="dropdown-item" href="#">
+          <img src="doc.png" width="20" height="20"> Документы</a>
+          <div class="dropdown-divider"></div>
+          <button type="button" class="btn btn-lg btn-block" style="background-color: #fe6f31;">Войти</button>
+        </div>
+      </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="E.png" width="30" height="30">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">RUS Рубль</a>
+          <a class="dropdown-item" href="#">EUR Евро</a>
+          <a class="dropdown-item" href="#">USD Доллар</a>
+          <a class="dropdown-item" href="#">CNY Юань</a>
+          <a class="dropdown-item" href="#">UAH Гривна</a>
+          <a class="dropdown-item" href="#">KZT Тенге</a>
+          <div class="dropdown-divider"></div>
+          <p class="dropdown-item">Выберите валюту</p>
+        </div>
+      </li>
+      </ul>
+      </form>
+    </div>
+  </div>
+</nav>
+<!-- Карусель изображений -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 h-300" src="SL1.jpg" alt="Первый слайд">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="SL2.jpg" alt="Второй слайд">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="SL3.jpg" alt="Третий слайд">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- Поиск билета -->
+<div class="container-fluid" style="margin: 40px 0px 60px 0px;">
+    <h1 align="center"><font size="10">Поиск дешёвых авиабилетов</font></h2>
+    <p align="center"><font size="5">Лучший способ купить авиабилеты дёшево</font></p>
+    <div class="input-group">
+      <div class="input-group-prepend"></div>
+  <input type="text" id="pole1" class="form-control" placeholder="Откуда">
+  <input type="text" id="pole2" class="form-control" placeholder="Куда">
+  <input type="date" id="pole3"class="form-control" placeholder="Когда">
+  <input type="date" id="pole4"class="form-control" placeholder="Обратно">
+  <input type="text" id="pole5"class="form-control" placeholder="Кол-во пассажиров">
+  <button type="button" class="btn btn-mt" onclick="Search()" style="background-color: #fe6f31;">Найти билеты</button>
+
+</div>
+  </div>
+</div>
+<!-- Подвал -->
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4">
+    <section class="mb-4">
+      <p><font size="4">FlightSearch — крупнейший поисковик авиабилетов в России. Мы сравниваем все доступные варианты перелётов по вашему запросу, а потом направляем вас для покупки на официальные сайты авиакомпаний и агентств. Стоимость авиабилета, которую вы видите на FlightSearch — финальная. Мы убрали все скрытые услуги и галочки.
+      </font></p>
+    </section>
+    <section class="">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Страны</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Россия</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Япония</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Кипр</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Все страны →</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">города</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Москва</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Токио</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Дамаск</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Все города →</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Сервисы</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Помощь</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Карта низких цен</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Блог</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Направления</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Москва-Токио</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Москва-Дамаск</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Москва-Рим</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Все направления →</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">FlightSearch.com</a>
+  </div>
+</footer>
+</body>
+</html>
