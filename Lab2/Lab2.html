@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  	<title>Калькулятор</title>
+  	<script src="Calc.js"></script>
+  	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="Pole">
+		<p><font color="white" size="6" =>Калькулятор квадратных уравнений</font></p>
+		<div class="Flex">
+			<p><input type="text" id="n1" size="3"><font color="white" size="4" => x² +ᅠ</font></p>
+			<p><input type="text" id="n2" size="3"><font color="white" size="4" => x +ᅠ </font></p>
+			<p><input type="text" id="n3" size="3"><font color="white" size="4" => = 0ᅠ </font></p>
+			<button class ="b1" onclick="Kvad()">Решить квадратное уравнение</button>
+		</div>
+	</div>
+	<div class="Otvet">
+		<p id="x1"><font color="black" size="5" =>x₁=</font></p>
+		<p id="x2"><font color="black" size="5" =>x₂=</font></p>
+	</div>
+</body>
